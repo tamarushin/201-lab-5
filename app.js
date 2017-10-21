@@ -14,6 +14,7 @@ For TODO item, be sure to change it to say DONE when you have successfully compl
 function sum(a,b){ //eslint-disable-line
   var theSum = a + b;
   var message = 'The sum of ' + a + ' and ' + b + ' is ' + theSum + '.';
+  console.log (message)
   return [theSum, message];
 }
 //
@@ -38,6 +39,7 @@ Test this function by hand in the console to get it working, and when you think 
 function multiply(a,b){
   var theproduct = a * b;
   var message = 'The product of ' + a +  ' and ' + b + ' is ' + theproduct + '.';
+  console.log(message);
   return [theproduct, message];
 }
 // // TODO: Here is the test for multiply(); uncomment it to run it
@@ -66,6 +68,7 @@ var wholeProduct = multiply(firstProduct,c)[0];
 var sumMessage = a + ' and ' + b + ' and ' + c + ' sum to ' + wholeSum + '.';
 var productMessage = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + wholeProduct + '.';
 return [wholeSum, wholeProduct, sumMessage, productMessage];
+console.log(sumMessage, productMessage);
 }
 
 // TODO: Here is the test for sumAndMultiply(); uncomment it to run it
@@ -83,13 +86,14 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
-// TODO: Write your code here
+// DONE: Write your code here
 var testArray = [2,3,4]; //eslint-disable-line
 
 function sumArray(testArray){ //eslint-disable-line
 
 var one = sum(sum(testArray[0],testArray[1])[0],testArray[2])[0];
 var message = testArray[0] + ',' + testArray[1] + ',' + testArray[2] + ' was passed in as an array of numbers, and ' + one + ' is their sum.';
+console.log(message)
 return [one, message];
 }
 
@@ -110,10 +114,21 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(testArray){ //eslint-disable-line
-
+testArray = [2,3,4]
+//by using a for loop, the answer will will multiply each number in the array by its last variable in the array.
+var product = 1
+for (var i=0; i<testArray.length; i++){
+product = multiply (testArray [i], product)[0];
+}
+//by using testArray.join, I can join all of my variables with whatever string I put in the (). Thank you Kevin!
+var testString = testArray.join (',');
+  var productMessage = 'The numbers ' + testString + ' have a product of ' + product + '.';
+  console.log (productMessage)
+return [product, productMessage];
 }
 
+
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(2,3,4);
+testMultiplyArray(2,3,4);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
